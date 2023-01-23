@@ -36,7 +36,7 @@ jobs:
       run:
         working-directory: ${{ inputs.working-directory }}
     name: Static validations
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: ${{ inputs.timeout_minutes }}
     outputs:
       puppet_unit_test_matrix: ${{ steps.get-outputs.outputs.puppet_unit_test_matrix }}
@@ -69,7 +69,7 @@ jobs:
       run:
         working-directory: ${{ inputs.working-directory }}
     needs: setup_matrix
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: ${{ inputs.timeout_minutes }}
     strategy:
       fail-fast: false
@@ -96,7 +96,7 @@ jobs:
 
   tests:
     needs: unit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     name: Test suite
     steps:
       - run: echo Test suite completed
